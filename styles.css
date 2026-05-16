@@ -33,9 +33,9 @@
     --space-1: 0.5rem;
     --space-2: 1rem;
     --space-3: 1.5rem;
-    --space-4: 2rem;
-    --space-6: 3rem;
-    --space-8: 4rem;
+    --space-4: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 2.5rem;
   
     --max-width: 42rem; /* ~672px, roughly 65ch */
   }
@@ -51,7 +51,7 @@
     background: var(--color-bg);
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--space-6) var(--space-3);
+    padding: var(--space-4) var(--space-3);
   }
   
   h1 {
@@ -65,7 +65,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-muted);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
   }
   
   h3 {
@@ -122,6 +122,21 @@
   time {
     color: var(--color-muted);
     font-size: 0.9375rem;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-8);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+  
+  footer p {
+    margin: 0;
   }
   
   /* ============================================
