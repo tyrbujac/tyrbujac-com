@@ -1,0 +1,138 @@
+/* ============================================
+   1. Reset
+   ============================================ */
+   *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img, picture {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* ============================================
+     2. Tokens
+     ============================================ */
+  :root {
+    --color-bg: #fafafa;
+    --color-text: #1a1a1a;
+    --color-muted: #666;
+    --color-accent: #2563eb;
+    --color-border: #e5e5e5;
+  
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    --size-base: 1.0625rem;
+    --line-height: 1.6;
+  
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-6: 3rem;
+    --space-8: 4rem;
+  
+    --max-width: 42rem; /* ~672px, roughly 65ch */
+  }
+  
+  /* ============================================
+     3. Base
+     ============================================ */
+  body {
+    font-family: var(--font-body);
+    font-size: var(--size-base);
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background: var(--color-bg);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-3);
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin-bottom: var(--space-3);
+  }
+  
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+  
+  p {
+    margin-bottom: var(--space-2);
+  }
+  
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  /* ============================================
+     4. Layout
+     ============================================ */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-8);
+  }
+  
+  header p {
+    color: var(--color-muted);
+    margin-bottom: 0;
+  }
+  
+  nav {
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  main > section {
+    margin-bottom: var(--space-8);
+  }
+  
+  section article {
+    margin-bottom: var(--space-4);
+  }
+  
+  section article:last-child {
+    margin-bottom: 0;
+  }
+  
+  time {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+  
+  /* ============================================
+     5. Dark mode (free)
+     ============================================ */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #111;
+      --color-text: #eaeaea;
+      --color-muted: #888;
+      --color-accent: #60a5fa;
+      --color-border: #2a2a2a;
+    }
+  }
