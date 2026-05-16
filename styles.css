@@ -138,9 +138,97 @@
   footer p {
     margin: 0;
   }
-  
+
   /* ============================================
-     5. Dark mode (free)
+     5. Post body
+     ============================================ */
+  .post {
+    margin-bottom: var(--space-8);
+  }
+
+  .post > header {
+    display: block;
+    margin-bottom: var(--space-6);
+  }
+
+  .post h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .post > header time {
+    display: block;
+  }
+
+  .post h2 {
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--color-text);
+    font-size: 1.25rem;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+
+  .post h3 {
+    font-size: 1.125rem;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-1);
+  }
+
+  .post ul,
+  .post ol {
+    padding-left: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .post li {
+    margin-bottom: var(--space-1);
+  }
+
+  .post pre {
+    background: color-mix(in srgb, var(--color-text) 6%, transparent);
+    padding: var(--space-2);
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+  }
+
+  .post code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: color-mix(in srgb, var(--color-text) 8%, transparent);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+  }
+
+  .post pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .post blockquote {
+    border-left: 3px solid var(--color-border);
+    padding-left: var(--space-2);
+    color: var(--color-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .post figure {
+    margin-bottom: var(--space-3);
+  }
+
+  .post figcaption {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    margin-top: var(--space-1);
+    text-align: center;
+  }
+
+  /* ============================================
+     6. Dark mode (free)
      ============================================ */
   @media (prefers-color-scheme: dark) {
     :root {
