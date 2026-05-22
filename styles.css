@@ -156,10 +156,6 @@
     margin-bottom: var(--space-1);
   }
 
-  .post > header time {
-    display: block;
-  }
-
   .post h2 {
     text-transform: none;
     letter-spacing: normal;
@@ -218,6 +214,12 @@
 
   .post figure {
     margin-bottom: var(--space-3);
+  }
+
+  .post figure img {
+    max-width: 24rem;
+    display: block;
+    margin-inline: auto;
   }
 
   .post figcaption {

@@ -11,9 +11,12 @@ Personal site + blog for Tyr Bujac. Design Engineer, final-year CS at Liverpool,
 ## Structure
 
 - `index.html` — homepage (about, projects, blog list, footer)
-- `posts/[slug].html` — individual blog posts
-- `styles.css` — all styles
-- `assets/` — images
+- `projects/index.html` — projects listing page
+- `blog/index.html` — blog listing page
+- `blog/[slug].html` — individual blog posts
+- `styles.css` — all styles, referenced everywhere as `/styles.css` (absolute path)
+- `assets/` — `favicon.svg`, `og-image.png`
+- `netlify.toml` — Netlify deploy config
 
 ## Conventions
 
@@ -23,9 +26,13 @@ Personal site + blog for Tyr Bujac. Design Engineer, final-year CS at Liverpool,
 - Centred column, max-width ~42rem (~65ch).
 - Type stack: system fonts. Body ~17px, line-height 1.6.
 
-## Modern CSS deliberately used
+## Blog post meta
 
-This project is partly an exercise in modern CSS. Prefer:
+Every blog post header carries `<time>DD Mon YYYY</time> · <span>N words</span>`. Count only the prose inside `<p>` tags within `<article class="post">` — exclude title, date, References, and image alt text. Recount and update whenever the body is edited; the count drifting silently is worse than a wrong number. Posts with external links end with an `<h2>References</h2>` followed by a `<ul>` (the body stays unlinked).
+
+## Modern CSS — reach for these first
+
+These aren't all in `styles.css` yet (the site is small), but they're the default when new CSS gets written:
 - `clamp()` for fluid type
 - `:has()` for parent selectors
 - Container queries where applicable
@@ -44,3 +51,7 @@ Site positions Tyr as a **Design Engineer** (Figma → React). Not "Product Desi
 - No analytics, no cookies, no tracking.
 - No "Hello world / welcome to my blog" posts. Posts should have substance.
 - Don't add features without asking (tags, search, comments, RSS, etc. — these come later, deliberately).
+
+## Trade-offs
+
+- Every page copies the `<header>`, `<footer>`, and most of `<head>`. That's the cost of no build step. Don't reach for a template system or partials before the duplication is genuinely painful — it's accepted as deliberate.
