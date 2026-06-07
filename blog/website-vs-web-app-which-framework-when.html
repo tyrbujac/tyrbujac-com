@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website vs web app: which framework when — Tyr Bujac</title>
+    <meta name="description" content="Migrating boojy.org to Astro, and what it taught me about picking React for apps and Astro for content sites.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tyrbujac.com/blog/website-vs-web-app-which-framework-when.html">
+    <meta property="og:title" content="Website vs web app: which framework when">
+    <meta property="og:description" content="Migrating boojy.org to Astro, and what it taught me about picking React for apps and Astro for content sites.">
+    <meta property="og:image" content="https://tyrbujac.com/assets/og-image.png">
+    <meta property="article:published_time" content="2026-06-07">
+    <meta property="article:author" content="Tyr Bujac">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../">Tyr Bujac</a>
+    </header>
+
+    <main>
+        <article class="post">
+            <header>
+                <h1>Website vs web app: which framework when</h1>
+                <time datetime="2026-06-07">7 Jun 2026</time> · <span>246 words</span>
+            </header>
+
+            <p>
+                This week I migrated my landing page, boojy.org, to Astro. It's
+                the site for Boojy, the creative software I'm developing. After
+                learning React I'd planned to build the landing page in React
+                too, but while reading about SEO I found that React apps aren't
+                designed well for web searches. That sent me down a useful
+                rabbit hole about when to use which framework.
+            </p>
+
+            <p>
+                It comes down to what you're building. There are roughly two
+                kinds of thing. A web app is interactive and stateful: you log
+                in, click around, things change on screen. A content site is
+                mostly pages of text that need to be found on Google. They pull
+                in different directions, so they suit different tools.
+            </p>
+
+            <p>
+                React is built for interactivity, so it suits apps. The two
+                apps in the Boojy suite, Boojy Notes and Boojy Design, are
+                built with React. Astro is built for content sites that load
+                fast and rank well on search engines, which is exactly what a
+                landing page needs. A landing page lives or dies on being
+                found; an app you log into doesn't need Google at all. So
+                boojy.org is Astro, and the apps are React.
+            </p>
+
+            <p>
+                Honestly, I wish I'd done a bit more research before picking
+                Astro. It works well, but it's less popular than Next.js (another framework for search engine optimisation), so
+                there are fewer high-quality tutorials when you get stuck. Next
+                time I'd lean towards Next.js, and I plan to learn it in the future.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+            <a href="mailto:tyrbujac@proton.me">tyrbujac@proton.me</a>
+            ·
+            <a href="https://github.com/tyrbujac">github</a>
+        </p>
+        <p>© 2026 Tyr Bujac</p>
+    </footer>
+</body>
+</html>
