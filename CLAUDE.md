@@ -30,6 +30,18 @@ Personal site + blog for Tyr Bujac. Design Engineer, final-year CS at Liverpool,
 
 Every blog post header carries `<time>DD Mon YYYY</time> · <span>N words</span>`. Count only the prose inside `<p>` tags within `<article class="post">` — exclude title, date, References, and image alt text. Recount and update whenever the body is edited; the count drifting silently is worse than a wrong number. Posts with external links end with an `<h2>References</h2>` followed by a `<ul>` (the body stays unlinked).
 
+**Never estimate the word count — always compute it deterministically** after any body edit, then write that exact number into the `<span>`. Don't eyeball, round, or carry over a number from an earlier draft. Run:
+
+```bash
+python3 - "$FILE" <<'PY'
+import re, sys
+art = re.search(r'<article class="post">(.*?)</article>', open(sys.argv[1]).read(), re.S).group(1)
+art = art.split('<h2>References')[0]
+text = re.sub(r'<[^>]+>', '', ' '.join(re.findall(r'<p>(.*?)</p>', art, re.S)))
+print(len(text.split()))
+PY
+```
+
 ## Modern CSS — reach for these first
 
 These aren't all in `styles.css` yet (the site is small), but they're the default when new CSS gets written:
