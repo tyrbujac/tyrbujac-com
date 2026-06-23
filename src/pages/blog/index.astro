@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base
+  title="Blog — Tyr Bujac"
+  description="Notes from Tyr Bujac on building software, design engineering, and thinking about AI tools."
+>
+  <section>
+    <h2>Blog</h2>
+    {posts.map((post) => {
+      const d = post.data.date;
+      const dateStr = `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+      const dateIso = d.toISOString().split('T')[0];
+      return (
+        <article>
+          <h3><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
+          <time datetime={dateIso}>{dateStr}</time>
+        </article>
+      );
+    })}
+  </section>
+</Base>

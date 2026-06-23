@@ -1,0 +1,50 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  wordCount: number;
+  slug: string;
+}
+
+const { title, description, date, wordCount, slug } = Astro.props;
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dateIso = date.toISOString().split('T')[0];
+const dateFormatted = `${date.getUTCDate()} ${MONTHS[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  datePublished: dateIso,
+  author: {
+    '@type': 'Person',
+    name: 'Tyr Bujac',
+    url: 'https://tyrbujac.com',
+  },
+  url: `https://tyrbujac.com/blog/${slug}/`,
+});
+---
+
+<Base
+  title={`${title} — Tyr Bujac`}
+  ogTitle={title}
+  description={description}
+  ogType="article"
+  publishedTime={dateIso}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={jsonLd} />
+  </Fragment>
+
+  <article class="post">
+    <header>
+      <h1>{title}</h1>
+      <time datetime={dateIso}>{dateFormatted}</time> · <span>{wordCount} words</span>
+    </header>
+    <slot />
+  </article>
+</Base>

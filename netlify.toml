@@ -1,2 +1,34 @@
 [build]
-  publish = "."
+  command = "pnpm run build"
+  publish = "dist"
+
+# Redirect old .html URLs to clean URLs (301)
+[[redirects]]
+  from = "/blog/building-this-blog.html"
+  to = "/blog/building-this-blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/what-100-lines-of-react-taught-me.html"
+  to = "/blog/what-100-lines-of-react-taught-me/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/why-im-sticking-with-typescript.html"
+  to = "/blog/why-im-sticking-with-typescript/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/website-vs-web-app-which-framework-when.html"
+  to = "/blog/website-vs-web-app-which-framework-when/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/devops-and-when-its-worth-it.html"
+  to = "/blog/devops-and-when-its-worth-it/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/setting-up-a-domain.html"
+  to = "/blog/setting-up-a-domain/"
+  status = 301

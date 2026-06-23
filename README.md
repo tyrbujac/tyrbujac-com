@@ -1,6 +1,6 @@
 # tyrbujac.com
 
-Personal site and blog. Built in pure HTML and CSS — no framework, no build step.
+Personal site and blog. Built with [Astro](https://astro.build) — static HTML output, no client-side JS.
 
 Live at [tyrbujac.com](https://tyrbujac.com).
 
@@ -9,27 +9,47 @@ Live at [tyrbujac.com](https://tyrbujac.com).
 ```bash
 git clone https://github.com/tyrbujac/tyrbujac-com.git
 cd tyrbujac-com
+pnpm install
+pnpm dev        # http://localhost:4321
 ```
 
-Open the folder in VS Code, then right-click `index.html` → "Open with Live Server" (install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension if you don't have it). Serves at `http://127.0.0.1:5500`.
+## Build & test
 
-Note: opening `index.html` directly via `file://` won't work — pages reference assets via absolute paths (`/styles.css`, `/assets/favicon.svg`), which only resolve when served from an HTTP server.
+```bash
+pnpm build      # outputs to dist/
+pnpm preview    # preview the built site locally
+pnpm test       # build + run SEO test suite
+```
 
 ## Structure
 
 ```text
 .
-├── index.html               Homepage
-├── projects/index.html      Projects page
-├── blog/index.html          Blog index
-├── blog/[slug].html         Blog posts
-├── styles.css               All styles
-├── assets/                  favicon.svg, og-image.png
-├── netlify.toml             Netlify deploy config
-└── CLAUDE.md                Project conventions
+├── src/
+│   ├── layouts/
+│   │   ├── Base.astro       Shared head, header, footer
+│   │   └── Post.astro       Blog post wrapper (JSON-LD, word count)
+│   ├── pages/
+│   │   ├── index.astro      Homepage
+│   │   ├── projects/        Projects listing
+│   │   ├── blog/            Blog listing + [slug] route
+│   │   └── rss.xml.js       RSS feed
+│   └── content/
+│       ├── config.ts        Blog collection schema
+│       └── blog/            Posts as Markdown (.md)
+├── plugins/
+│   └── remark-word-count.mjs   Auto word count at build time
+├── public/
+│   ├── styles.css           All styles
+│   ├── assets/              favicon.svg, og-image.png, images
+│   └── robots.txt
+├── tests/
+│   └── seo.test.ts          SEO test suite (Vitest)
+├── astro.config.mjs
+└── netlify.toml             Build command + .html → clean URL redirects
 ```
 
 ## Stack
 
-- HTML, CSS
-- Hosted on Netlify
+- [Astro](https://astro.build) (static output)
+- Hosted on Netlify, deployed on push to `master`

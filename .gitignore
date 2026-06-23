@@ -2,6 +2,8 @@
 .vscode/
 node_modules/
 .env
+dist/
+.astro/
 
 # Local Netlify folder
 .netlify

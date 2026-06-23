@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  publishedTime?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogType = 'website',
+  ogImage = '/assets/og-image.png',
+  publishedTime,
+} = Astro.props;
+
+const SITE = 'https://tyrbujac.com';
+const canonicalUrl = new URL(Astro.url.pathname, SITE).href;
+const resolvedOgImage = new URL(ogImage, SITE).href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+
+  <meta property="og:type" content={ogType}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:title" content={ogTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={resolvedOgImage}>
+
+  {ogType === 'article' && publishedTime && (
+    <>
+      <meta property="article:published_time" content={publishedTime}>
+      <meta property="article:author" content="Tyr Bujac">
+    </>
+  )}
+
+  <link rel="alternate" type="application/rss+xml" title="Tyr Bujac" href="/rss.xml">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <slot name="head" />
+</head>
+<body>
+  <header>
+    <slot name="header-inner">
+      <a href="/">Tyr Bujac</a>
+    </slot>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <p>
+      <a href="mailto:tyrbujac@proton.me">tyrbujac@proton.me</a>
+      ·
+      <a href="https://github.com/tyrbujac">github</a>
+    </p>
+    <p>© 2026 Tyr Bujac</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "tyrbujac-com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "astro build && vitest run"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "mdast-util-to-string": "^4.0.0",
+    "node-html-parser": "^6.0.0",
+    "vitest": "^2.0.0"
+  }
+}
