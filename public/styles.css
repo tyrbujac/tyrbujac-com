@@ -114,9 +114,15 @@
   section article {
     margin-bottom: var(--space-4);
   }
-  
+
   section article:last-child {
     margin-bottom: 0;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
   }
   
   time {

@@ -1,31 +1,25 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/projects';
 ---
 
 <Base
   title="Projects — Tyr Bujac"
-  description="Projects by Tyr Bujac. Currently: Igni, a UI-first language for Flutter, and Boojy Audio, a DAW for the gap between GarageBand and Ableton."
+  description="Projects by Tyr Bujac. Currently: Igni, a UI-first language for Flutter; Boojy Audio, a DAW for the gap between GarageBand and Ableton; and Pomodonut, a Pomodoro timer."
 >
   <section>
     <h2>Projects</h2>
 
-    <article>
-      <h3>Igni</h3>
-      <p>
-        A UI-first language for Flutter. My dissertation explores how
-        language design predicts LLM code generation accuracy.
-      </p>
-      <a href="https://github.com/tyrbujac/igni">github.com/tyrbujac/igni</a>
-    </article>
-
-    <article>
-      <h3>Boojy Audio</h3>
-      <p>
-        A DAW for the gap between GarageBand and Ableton —
-        friendly enough to open on a whim, deep enough to
-        finish a track. Assistive AI, no generative features.
-      </p>
-      <a href="https://github.com/boojyorg/boojy-audio">github.com/boojyorg/boojy-audio</a>
-    </article>
+    {projects.map((project) => (
+      <article>
+        <h3>{project.name}</h3>
+        <p>{project.description}</p>
+        <div class="project-links">
+          {project.links.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      </article>
+    ))}
   </section>
 </Base>
