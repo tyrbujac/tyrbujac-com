@@ -50,13 +50,14 @@ const resolvedOgImage = new URL(ogImage, SITE).href;
   <slot name="head" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header>
     <slot name="header-inner">
       <a href="/">Tyr Bujac</a>
     </slot>
   </header>
 
-  <main>
+  <main id="main-content">
     <slot />
   </main>
 
@@ -64,7 +65,7 @@ const resolvedOgImage = new URL(ogImage, SITE).href;
     <p>
       <a href="mailto:tyrbujac@proton.me">tyrbujac@proton.me</a>
       ·
-      <a href="https://github.com/tyrbujac">github</a>
+      <a href="https://github.com/tyrbujac" aria-label="Tyr Bujac on GitHub">github</a>
     </p>
     <p>© 2026 Tyr Bujac</p>
   </footer>

@@ -230,7 +230,24 @@
   }
 
   /* ============================================
-     6. Dark mode (free)
+     6. Accessibility
+     ============================================ */
+  .skip-link {
+    position: absolute;
+    inset-inline-start: -999px;
+    inset-block-start: 0;
+    background: var(--color-bg);
+    color: var(--color-accent);
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .skip-link:focus {
+    inset-inline-start: var(--space-2);
+    inset-block-start: var(--space-2);
+  }
+
+  /* ============================================
+     7. Dark mode (free)
      ============================================ */
   @media (prefers-color-scheme: dark) {
     :root {
