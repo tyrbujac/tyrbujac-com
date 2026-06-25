@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description:
       "A Pomodoro timer with a draining illustrated donut. React 19, Web Audio synthesised sounds, no image assets.",
     links: [
-      { href: "https://pomodonut-react.netlify.app", label: "pomodonut-react.netlify.app" },
+      { href: "https://pomodonut.tyrbujac.com", label: "pomodonut.tyrbujac.com" },
       { href: "https://github.com/tyrbujac/pomodonut-react", label: "github.com/tyrbujac/pomodonut-react" },
     ],
   },
