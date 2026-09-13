@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
+import { Image } from 'astro:assets';
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const posts = (await getCollection('blog'))
@@ -9,13 +10,13 @@ const posts = (await getCollection('blog'))
 ---
 
 <Base
-  title="Tyr Bujac — Design Engineer"
-  description="Design engineer. Final-year CS at Liverpool, moving to Barcelona. I design and build software."
+  title="Tyr Bujac — Full-Stack Developer"
+  description="Final-year Computer Science student at the University of Liverpool, moving to Barcelona after graduation. I design and build software, mostly open-source creative tools."
 >
   <Fragment slot="header-inner">
     <div>
       <h1>Tyr Bujac</h1>
-      <p>Design Engineer</p>
+      <p>Full-stack Developer</p>
     </div>
     <nav>
       <a href="/projects/">Projects</a>
@@ -25,8 +26,7 @@ const posts = (await getCollection('blog'))
 
   <section id="about">
     <p>
-      Final-year Computer Science student at University of Liverpool,
-      moving to Barcelona after graduation. I design and build software.
+      Final-year Computer Science student at the University of Liverpool, moving to Barcelona after graduation. I design and build software, mostly open-source creative tools.
     </p>
   </section>
 
@@ -36,6 +36,7 @@ const posts = (await getCollection('blog'))
     {projects.map((project) => (
       <article>
         <h3>{project.name}</h3>
+        <Image src={project.image} alt={project.imageAlt} width={480} loading="lazy" class="project-image" />
         <p>{project.description}</p>
         <div class="project-links">
           {project.links.map((link) => (

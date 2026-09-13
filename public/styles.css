@@ -119,6 +119,21 @@
     margin-bottom: 0;
   }
 
+  .project-image {
+    display: block;
+    width: 50%;
+    height: auto;
+    margin: var(--space-2) 0;
+    border: 1px solid var(--color-border, #e5e5e5);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 40rem) {
+    .project-image {
+      width: 100%;
+    }
+  }
+
   .project-links {
     display: flex;
     flex-wrap: wrap;

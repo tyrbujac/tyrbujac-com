@@ -1,11 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { projects } from '../../data/projects';
+import { Image } from 'astro:assets';
 ---
 
 <Base
   title="Projects — Tyr Bujac"
-  description="Projects by Tyr Bujac. Currently: Igni, a UI-first language for Flutter; Boojy Audio, a DAW for the gap between GarageBand and Ableton; and Pomodonut, a Pomodoro timer."
+  description="Projects by Tyr Bujac. Boojy Audio, a free DAW built with Flutter and Rust, and Pomodonut, a Pomodoro timer built in React."
 >
   <section>
     <h2>Projects</h2>
@@ -13,6 +14,7 @@ import { projects } from '../../data/projects';
     {projects.map((project) => (
       <article>
         <h3>{project.name}</h3>
+        <Image src={project.image} alt={project.imageAlt} width={480} loading="lazy" class="project-image" />
         <p>{project.description}</p>
         <div class="project-links">
           {project.links.map((link) => (
